@@ -3,16 +3,18 @@ from datetime import date
 
 import qrcode
 
+serial_number = input("Serial number: ")
+
+def sanitize_output(input):
+    output = str(input).capitalize()
+    return output
 
 def get_client_info():
 
-    name = input("Name: ")
-    serial_number = input("Serial Number: ")
-    mac_address = input("MAC Address: ")
-    rack = input("Rack: ")
-    port = input("Port: ")
+    client_name = sanitize_output(input("Name: "))
+    mac_address = sanitize_output(input("MAC Address: "))
     timestamp = date.today()
-    return name, serial_number, mac_address, rack, port, timestamp
+    return client_name, mac_address, timestamp
 
 
 def write_csv(qr_data):
@@ -26,7 +28,7 @@ def write_csv(qr_data):
 def make_qr_code(qr_data):
     qr_code = qrcode.make(qr_data)
     type(qr_code)
-    qr_code.save("qr_code.png")
+    qr_code.save(f"{sanitize_output(serial_number)}.png")
 
 
 qr_data = get_client_info()
