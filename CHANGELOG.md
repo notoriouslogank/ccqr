@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Functionality to generate physical shelf tags
+- Functionality to tie machine to location and create csv outfile
 
 ### Changed
 
