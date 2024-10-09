@@ -14,7 +14,7 @@ def get_client_info():
     client_name = sanitize_output(input("Name: "))
     mac_address = sanitize_output(input("MAC Address: "))
     timestamp = date.today()
-    return client_name, mac_address, timestamp
+    return serial_number, client_name, mac_address, timestamp
 
 
 def write_csv(qr_data):
