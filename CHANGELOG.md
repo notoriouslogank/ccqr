@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Functionality to generate physical shelf tags
 - Functionality to tie machine to location and create csv outfile
 
+### Fixed
+
+- Serial number is now the name of the .png file generated per machine
+- The only information directly encoded within the QR Code is the machine serial number; everything else is a lookup
+
+
 ### Changed
 
 - Minor refactoring
