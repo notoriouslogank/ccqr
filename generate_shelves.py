@@ -1,15 +1,15 @@
 import qrcode
 
 WALLS = ['N']
-RACKS = range(1,15)
-SLOTS = range(1,64)
+RACKS = range(1,11) # exclusive
+SLOTS = range(1,65) # exclusive
 delimiter = "-"
 
 
 def make_qr_code(qr_data):
     qr_code = qrcode.make(qr_data)
     type(qr_code)
-    qr_code.save(f"./generated_codes/{qr_data}.png")
+    qr_code.save(f"./qr/shelves/{qr_data}.png")
 
 for wall in WALLS:
     for rack in RACKS:
