@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0-dev] - 09-10-2024
+
+### Changed
+
+- All QR outputs now land in qr/location or qr/machine_id as necessary
+-
+
 ## [0.1.0] - 09-10-2024
 
 ### Added
@@ -16,7 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Serial number is now the name of the .png file generated per machine
 - The only information directly encoded within the QR Code is the machine serial number; everything else is a lookup
-
 
 ### Changed
 
