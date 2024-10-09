@@ -5,7 +5,7 @@ import qrcode
 
 def get_machine_name():
     machine_name = input("Machine ID: ")
-    machine_id = machine_name.capitalize()
+    machine_id = machine_name.upper()
     return machine_id
 
 def get_client_info(machine_id):
@@ -25,7 +25,7 @@ def write_csv(qr_data):
 def make_qr_code(qr_data):
     qr_code = qrcode.make(qr_data)
     type(qr_code)
-    qr_code.save(f"{machine_id}.png")
+    qr_code.save(f"./generated_codes/{machine_id}.png")
 
 machine_id = get_machine_name()
 write_csv(get_client_info(machine_id))
