@@ -1,6 +1,6 @@
 import qrcode
 
-wrs = []
+wrs = []  # literally "walls, racks, slots" as a list
 
 
 def get_delimiter():
@@ -10,8 +10,10 @@ def get_delimiter():
 
 def get_shelf_information():
     walls = input("Wall Letter: ")
-    racks = range(1, int(input("Racks to create: ")) + 1)
-    slots = range(1, int(input("Slots in rack: ")) + 1)
+    racks = range(
+        1, int(input("Racks to create: ")) + 1
+    )  # Accounting for the off-by-one error due to zero indexing
+    slots = range(1, int(input("Slots in rack: ")) + 1)  # See above
     wrs.append(walls)
     wrs.append(racks)
     wrs.append(slots)
