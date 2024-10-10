@@ -12,8 +12,9 @@ def make_qr_code(qr_data):
     qr_code.save(f"./qr/location/{qr_data}.png")
 
 
-for wall in WALLS:
-    for rack in RACKS:
-        for slot in SLOTS:
-            qr_data = f"{wall}{delimiter}{rack}{delimiter}{slot}"
-            make_qr_code(qr_data)
+def main():
+    for wall in WALLS:
+        for rack in RACKS:
+            for slot in SLOTS:
+                qr_data = f"{wall}{delimiter}{rack}{delimiter}{slot}"
+                make_qr_code(qr_data)
