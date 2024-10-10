@@ -28,9 +28,10 @@ def write_csv(qr_data):
 def make_qr_code(qr_data):
     qr_code = qrcode.make(qr_data)
     type(qr_code)
-    qr_code.save(f"./qr/machine_id/{machine_id}.png")
+    qr_code.save(f"./qr/machine_id/{qr_data}.png")
 
 
-machine_id = get_machine_name()
-write_csv(get_client_info(machine_id))
-make_qr_code(machine_id)
+def main():
+    machine_id = get_machine_name()
+    write_csv(get_client_info(machine_id))
+    make_qr_code(machine_id)
