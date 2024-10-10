@@ -3,16 +3,19 @@ from datetime import date
 
 import qrcode
 
+
 def get_machine_name():
     machine_name = input("Machine ID: ")
     machine_id = machine_name.upper()
     return machine_id
+
 
 def get_client_info(machine_id):
     client_name = input("Name: ")
     mac_address = input("MAC Address: ")
     timestamp = date.today()
     return machine_id, client_name, mac_address, timestamp
+
 
 def write_csv(qr_data):
     with open("master_list.csv", "a", newline="") as csvfile:
@@ -25,8 +28,10 @@ def write_csv(qr_data):
 def make_qr_code(qr_data):
     qr_code = qrcode.make(qr_data)
     type(qr_code)
-    qr_code.save(f"./generated_codes/{machine_id}.png")
+    qr_code.save(f"./qr/machine_id/{qr_data}.png")
 
-machine_id = get_machine_name()
-write_csv(get_client_info(machine_id))
-make_qr_code(machine_id)
+
+def main():
+    machine_id = get_machine_name()
+    write_csv(get_client_info(machine_id))
+    make_qr_code(machine_id)

@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 09-10-2024
+
+### Added
+
+- main.py launches program from one location rather than separate modules
+
+### Changed
+
+- All .pngs now get created in the appropriate location
+- All submodules get called by main.py
+- Sorted all imports
+- Formatted entire codebase
+
 ## [0.1.0] - 09-10-2024
 
 ### Added
@@ -16,7 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Serial number is now the name of the .png file generated per machine
 - The only information directly encoded within the QR Code is the machine serial number; everything else is a lookup
-
 
 ### Changed
 
