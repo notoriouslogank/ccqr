@@ -5,16 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.1-dev] - 09-10-2024
+## [0.2.0] - 09-10-2024
 
-### Fixed
+### Added
 
-- Broken git branch name
+- main.py launches program from one location rather than separate modules
 
 ### Changed
 
-- All QR outputs now land in qr/location or qr/machine_id as necessary
--
+- All .pngs now get created in the appropriate location
+- All submodules get called by main.py
+- Sorted all imports
+- Formatted entire codebase
 
 ## [0.1.0] - 09-10-2024
 
