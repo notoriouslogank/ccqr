@@ -1,6 +1,8 @@
 import mysql.connector
 import qrcode
 
+import constants
+
 
 def create_qr(serial_number):
     qr_code = qrcode.make(serial_number)
@@ -11,7 +13,10 @@ def create_qr(serial_number):
 def main():
     while True:
         db = mysql.connector.connect(
-            host="localhost", user="root", passwd="Doge123*", database="testdatabase"
+            host=constants.HOST,
+            user=constants.USER,
+            passwd=constants.PASSWD,
+            database=constants.DATABASE,
         )
 
         mycursor = db.cursor()
@@ -38,6 +43,3 @@ def main():
             exit()
         if add_another == "Y":
             pass
-
-
-main()

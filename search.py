@@ -1,8 +1,13 @@
 import mysql.connector
 from rich import print as print
 
+import constants
+
 db = mysql.connector.connect(
-    host="localhost", user="root", passwd="Doge123*", database="testdatabase"
+    host=constants.HOST,
+    user=constants.USER,
+    passwd=constants.PASSWD,
+    database=constants.DATABASE,
 )
 
 

@@ -1,9 +1,14 @@
 import mysql.connector
 
+import constants
+
 if __name__ == "__main__":
 
     db = mysql.connector.connect(
-        host="localhost", user="root", passwd="Doge123*", database="testdatabase"
+        host=constants.HOST,
+        user=constants.USER,
+        passwd=constants.PASSWD,
+        database=constants.DATABASE,
     )
 
     mycursor = db.cursor()

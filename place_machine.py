@@ -1,7 +1,12 @@
 import mysql.connector
 
+import constants
+
 db = mysql.connector.connect(
-    host="localhost", user="root", passwd="Doge123*", database="testdatabase"
+    host=constants.HOST,
+    user=constants.USER,
+    passwd=constants.PASSWD,
+    database=constants.DATABASE,
 )
 
 mycursor = db.cursor()
@@ -15,4 +20,5 @@ def place_machine():
     db.commit()
 
 
-place_machine()
+def main():
+    place_machine()
