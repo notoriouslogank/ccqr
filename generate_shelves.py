@@ -1,16 +1,19 @@
 import qrcode
 
-WALLS = ["N"]
-RACKS = range(1, 2)
-SLOTS = range(1, 65)  # exclusive
-delimiter = "-"
-wrs = []
+wrs = []  # literally "walls, racks, slots" as a list
+
+
+def get_delimiter():
+    delimiter = input("Delimiter: ")
+    return delimiter
 
 
 def get_shelf_information():
     walls = input("Wall Letter: ")
-    racks = range(1, int(input("Racks to create: ")) + 1)
-    slots = range(1, int(input("Slots in rack: ")) + 1)
+    racks = range(
+        1, int(input("Racks to create: ")) + 1
+    )  # Accounting for the off-by-one error due to zero indexing
+    slots = range(1, int(input("Slots in rack: ")) + 1)  # See above
     wrs.append(walls)
     wrs.append(racks)
     wrs.append(slots)
@@ -24,6 +27,7 @@ def make_qr_code(qr_data):
 
 def main():
     get_shelf_information()
+    delimiter = get_delimiter()
     for wall in wrs[0]:
         for rack in wrs[1]:
             for slot in wrs[2]:

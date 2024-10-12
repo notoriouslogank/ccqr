@@ -1,37 +1,45 @@
-import csv
-from datetime import date
-
+import mysql.connector
 import qrcode
 
-
-def get_machine_name():
-    machine_name = input("Machine ID: ")
-    machine_id = machine_name.upper()
-    return machine_id
+import constants
 
 
-def get_client_info(machine_id):
-    client_name = input("Name: ")
-    mac_address = input("MAC Address: ")
-    timestamp = date.today()
-    return machine_id, client_name, mac_address, timestamp
-
-
-def write_csv(qr_data):
-    with open("master_list.csv", "a", newline="") as csvfile:
-        writer = csv.writer(
-            csvfile, delimiter=",", quotechar="'", quoting=csv.QUOTE_MINIMAL
-        )
-        writer.writerow(qr_data)
-
-
-def make_qr_code(qr_data):
-    qr_code = qrcode.make(qr_data)
+def create_qr(serial_number):
+    qr_code = qrcode.make(serial_number)
     type(qr_code)
-    qr_code.save(f"./qr/machine_id/{qr_data}.png")
+    qr_code.save(f"./qr/machine/{serial_number}.png")
 
 
 def main():
-    machine_id = get_machine_name()
-    write_csv(get_client_info(machine_id))
-    make_qr_code(machine_id)
+    while True:
+        db = mysql.connector.connect(
+            host=constants.HOST,
+            user=constants.USER,
+            passwd=constants.PASSWD,
+            database=constants.DATABASE,
+        )
+
+        mycursor = db.cursor()
+        machine_name = input("Machine Name: ")
+        client_name = input("Client Name: ")
+        serial_number = input("Serial Number: ")
+        machine_location = input("Location: ")
+        notes = input("Notes: ")
+        mycursor.execute(
+            "INSERT INTO MachineMasterList (machine_name, client_name, serial_number, machine_location, notes) VALUES (%s,%s,%s,%s,%s)",
+            (
+                f"{machine_name}",
+                f"{client_name}",
+                f"{serial_number}",
+                f"{machine_location}",
+                f"{notes}",
+            ),
+        )
+        db.commit()
+        create_qr(serial_number=serial_number)
+
+        add_another = input("Add another? [Y/n] ").lower()
+        if add_another == "n":
+            exit()
+        if add_another == "Y":
+            pass
