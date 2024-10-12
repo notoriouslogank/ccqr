@@ -1,3 +1,5 @@
+import os
+
 from rich import print as print
 
 import add_machine
@@ -6,7 +8,14 @@ import place_machine
 import search
 
 
+def make_qr_dirs():
+    os.makedirs(name="qr/location", exist_ok=True)
+    os.makedirs(name="qr/machine", exist_ok=True)
+
+
 def main():
+
+    make_qr_dirs()
 
     choices = {
         1: "Create Shelves",
@@ -14,10 +23,9 @@ def main():
         3: "Place Machine(s)",
         4: "Locate Machine(s)",
     }
-    print(f"Choices: {choices}")
+    print(f"What would you like to do?: {choices}")
     choice = int(input("Choose an option: "))
     output = choices[choice]
-    print(output)
 
     if output == "Create Shelves":
         generate_shelves.main()
