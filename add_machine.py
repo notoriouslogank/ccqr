@@ -7,7 +7,7 @@ import constants
 def create_qr(serial_number):
     qr_code = qrcode.make(serial_number)
     type(qr_code)
-    qr_code.save(f"./qr/machine_id/{serial_number}.png")
+    qr_code.save(f"./qr/machine/{serial_number}.png")
 
 
 def main():
