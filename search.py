@@ -65,4 +65,5 @@ def choose_search_parameter():
         search_all()
 
 
-choose_search_parameter()
+def main():
+    choose_search_parameter()
