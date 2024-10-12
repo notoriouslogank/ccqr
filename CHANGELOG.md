@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 09-10-2024
 
+### Breaking Changes
+
+- No longer outputs CSV files
+- Entire I/O now interacts with MySQL database
+
 ### Added
 
 - Ability to set user-defined arbitrary delimiter in shelve generation
+- Functionality to edit machine information (only delete for now, but more features coming soon)
 
 ## [0.2.0] - 09-10-2024
 
