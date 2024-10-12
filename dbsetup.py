@@ -1,8 +1,13 @@
+from os import makedirs
+
 import mysql.connector
 
 import constants
 
 if __name__ == "__main__":
+
+    makedirs("qr/location", exist_ok=True)
+    makedirs("qr/machine", exist_ok=True)
 
     db = mysql.connector.connect(
         host=constants.HOST,
