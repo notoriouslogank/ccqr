@@ -26,7 +26,7 @@ def main():
         machine_location = input("Location: ")
         notes = input("Notes: ")
         mycursor.execute(
-            "INSERT INTO MachineIDs (machine_name, client_name, serial_number, machine_location, notes) VALUES (%s,%s,%s,%s,%s)",
+            "INSERT INTO MachineMasterList (machine_name, client_name, serial_number, machine_location, notes) VALUES (%s,%s,%s,%s,%s)",
             (
                 f"{machine_name}",
                 f"{client_name}",

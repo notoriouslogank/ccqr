@@ -14,7 +14,7 @@ db = mysql.connector.connect(
 def search_serial_number():
     mycursor = db.cursor()
     serial_number = input("Serial Number: ")
-    sql_search = "SELECT * FROM MachineIDs WHERE serial_number = %s"
+    sql_search = "SELECT * FROM MachineMasterList WHERE serial_number = %s"
 
     mycursor.execute(sql_search, (serial_number,))
 
@@ -25,7 +25,7 @@ def search_serial_number():
 def search_machine_location():
     mycursor = db.cursor()
     location_id = input("Location ID: ")
-    sql_search = "SELECT * FROM MachineIDs WHERE machine_location = %s"
+    sql_search = "SELECT * FROM MachineMasterList WHERE machine_location = %s"
     mycursor.execute(sql_search, (location_id,))
 
     for x in mycursor:
@@ -35,7 +35,7 @@ def search_machine_location():
 def search_client():
     mycursor = db.cursor()
     client_id = input("Client Name: ")
-    sql_search = "SELECT * FROM MachineIDs WHERE client_name = %s"
+    sql_search = "SELECT * FROM MachineMasterList WHERE client_name = %s"
     mycursor.execute(sql_search, (client_id,))
 
     for x in mycursor:
@@ -44,7 +44,7 @@ def search_client():
 
 def search_all():
     mycursor = db.cursor()
-    sql_search = "SELECT * FROM MachineIDs"
+    sql_search = "SELECT * FROM MachineMasterList"
     mycursor.execute(sql_search)
 
     for x in mycursor:
