@@ -1,3 +1,5 @@
+import sys
+
 import mysql.connector
 
 import constants
@@ -22,3 +24,8 @@ def place_machine():
 
 def main():
     place_machine()
+    place_another = input("Place another? [Y/n]").lower()
+    if place_another == "n":
+        sys.exit()
+    if place_another == "y":
+        main()
