@@ -1,9 +1,11 @@
 import add_machine
 import generate_shelves
+import place_machine
 import search
 
 
 def main():
+
     choices = {
         1: "Create Shelves",
         2: "Add Machine(s)",
@@ -20,8 +22,7 @@ def main():
     if output == "Add Machine(s)":
         add_machine.main()
     if output == "Place Machine(s)":
-        # TODO: place_machine.main()
-        pass
+        place_machine.main()
     if output == "Locate Machine(s)":
         search.choose_search_parameter()
 
