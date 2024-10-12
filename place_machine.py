@@ -1,18 +1,18 @@
-import csv
+import mysql.connector
+
+db = mysql.connector.connect(
+    host="localhost", user="root", passwd="Doge123*", database="testdatabase"
+)
+
+mycursor = db.cursor()
 
 
-def get_data():
-    machine = input("Machine: ")
-    location = input("Location: ")
-    return machine, location
+def place_machine():
+    serial_number = input("Machine to place: ")
+    machine_location = input("Machine location: ")
+    sql = "UPDATE MachineIDs SET machine_location = %s WHERE serial_number = %s"
+    mycursor.execute(sql, (machine_location, serial_number))
+    db.commit()
 
 
-def write_csv(csv_data):
-    with open("location_list.csv", "a", newline="") as csvfile:
-        writer = csv.writer(
-            csvfile, delimiter=",", quotechar="'", quoting=csv.QUOTE_MINIMAL
-        )
-        writer.writerow(csv_data)
-
-
-write_csv(get_data())
+place_machine()
