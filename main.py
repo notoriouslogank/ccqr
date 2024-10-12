@@ -1,3 +1,5 @@
+from rich import print as print
+
 import add_machine
 import generate_shelves
 import place_machine
