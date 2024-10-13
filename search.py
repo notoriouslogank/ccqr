@@ -72,3 +72,5 @@ def choose_search_parameter():
 
 def main():
     choose_search_parameter()
+    awaiting = input("Press ENTER to continue...")
+    print(awaiting)
