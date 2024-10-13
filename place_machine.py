@@ -1,3 +1,5 @@
+import sys
+
 import mysql.connector
 
 import constants
@@ -21,5 +23,15 @@ def place_machine():
     db.commit()
 
 
+def another():
+    """Ask user whether to enter another machine location or quit the program"""
+    add_another = input("Place another machine? [Y/n]").lower()
+    if add_another == "n":
+        sys.exit()
+    if add_another == "y":
+        place_machine()
+
+
 def main():
     place_machine()
+    another()
