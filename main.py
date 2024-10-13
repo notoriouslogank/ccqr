@@ -25,7 +25,7 @@ def main():
     if output == "Place Machine(s)":
         place_machine.main()
     if output == "Locate Machine(s)":
-        search.choose_search_parameter()
+        search.main()
 
 
 main()
