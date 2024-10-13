@@ -10,9 +10,11 @@ db = mysql.connector.connect(
     database=constants.DATABASE,
 )
 
+mycursor = db.cursor()
+
 
 def search_serial_number():
-    mycursor = db.cursor()
+    """Search table by serial number"""
     serial_number = input("Serial Number: ")
     sql_search = "SELECT * FROM MachineMasterList WHERE serial_number = %s"
 
@@ -23,7 +25,7 @@ def search_serial_number():
 
 
 def search_machine_location():
-    mycursor = db.cursor()
+    """Search table by location tag"""
     location_id = input("Location ID: ")
     sql_search = "SELECT * FROM MachineMasterList WHERE machine_location = %s"
     mycursor.execute(sql_search, (location_id,))
@@ -33,7 +35,7 @@ def search_machine_location():
 
 
 def search_client():
-    mycursor = db.cursor()
+    """Search table by client name"""
     client_id = input("Client Name: ")
     sql_search = "SELECT * FROM MachineMasterList WHERE client_name = %s"
     mycursor.execute(sql_search, (client_id,))
@@ -43,7 +45,7 @@ def search_client():
 
 
 def search_all():
-    mycursor = db.cursor()
+    """Show all table entries"""
     sql_search = "SELECT * FROM MachineMasterList"
     mycursor.execute(sql_search)
 
@@ -52,16 +54,19 @@ def search_all():
 
 
 def choose_search_parameter():
-    search_param = input(
-        "Choose search parameter: [A]ll Machines; [S]erial Number; [L]ocation; [C]lient "
-    ).lower()
-    if search_param == "s":
+    """Choose which filter to apply to search"""
+    choices = {1: "All Machines", 2: "Serial Number", 3: "Location", 4: "Client"}
+    print(f"Filter by: {choices}")
+    choice = int(input("Choose an option: "))
+    output = choices[choice]
+
+    if output == "Serial Number":
         search_serial_number()
-    if search_param == "l":
+    if output == "Location":
         search_machine_location()
-    if search_param == "c":
+    if output == "Client":
         search_client()
-    if search_param == "a":
+    if output == "All Machines":
         search_all()
 
 
